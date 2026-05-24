@@ -1,0 +1,10 @@
+services:
+  stellar-burgers:
+    build: .
+    shm_size: '2gb'
+    volumes:
+      - ./allure-results:/app/allure-results
+    environment:
+      - BROWSER=chrome
+      - HEADLESS=true
+      - ENV=dev
