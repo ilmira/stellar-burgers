@@ -37,8 +37,9 @@ class TestNavigation:
     def test_navigation_exit(self, for_navigation, login_page, registered_user):
         with allure.step("Авторизация пользователя"):
             login_page.authorise_by_login_page(registered_user.email, registered_user.password)
-        with allure.step("Проверка выхода через кнопку 'Выйти' в личном кабинете"):
+        with allure.step("Переход в личный кабинет"):
             for_navigation.login_page()
+        with allure.step("Выход через кнопку 'Выйти' в личном кабинете"):
             for_navigation.click_to_exit()
-            for_navigation.login_page()
+        with allure.step("Проверка выхода через кнопку 'Выйти' в личном кабинете"):
             for_navigation.is_user_exit_from_account()
