@@ -1,6 +1,7 @@
 import pytest
 import allure
 
+
 @allure.feature("Тесты для проверки навигации")
 class TestNavigation:
 
@@ -15,7 +16,7 @@ class TestNavigation:
 
     @pytest.mark.regression
     @allure.title("Тест навигации: проверка перехода по клику на 'Конструктор'")
-    def test_navigation_constructor(self, for_navigation,login_page, registered_user):
+    def test_navigation_constructor(self, for_navigation, login_page, registered_user):
         with allure.step("Авторизация пользователя"):
             login_page.authorise_by_login_page(registered_user.email, registered_user.password)
         with allure.step("Проверка перехода по клику на 'Конструктор'"):
@@ -24,7 +25,7 @@ class TestNavigation:
 
     @pytest.mark.regression
     @allure.title("Тест навигации: проверка перехода по клику на логотип Stellar Burgers")
-    def test_navigation_logo(self, for_navigation,login_page, registered_user):
+    def test_navigation_logo(self, for_navigation, login_page, registered_user):
         with allure.step("Авторизация пользователя"):
             login_page.authorise_by_login_page(registered_user.email, registered_user.password)
         with (allure.step("Проверка перехода по клику на логотип Stellar Burgers")):
@@ -33,7 +34,7 @@ class TestNavigation:
 
     @pytest.mark.regression
     @allure.title("Тест навигации: проверка выхода через кнопку 'Выйти' в личном кабинете")
-    def test_navigation_exit(self, for_navigation,login_page, registered_user):
+    def test_navigation_exit(self, for_navigation, login_page, registered_user):
         with allure.step("Авторизация пользователя"):
             login_page.authorise_by_login_page(registered_user.email, registered_user.password)
         with allure.step("Проверка выхода через кнопку 'Выйти' в личном кабинете"):

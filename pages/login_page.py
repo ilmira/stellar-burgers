@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
+
 class LoginPage(BasePage):
     """Класс для страницы авторизации"""
 
@@ -17,7 +18,6 @@ class LoginPage(BasePage):
         self.input_text(self.password_field, password)
         self.click_element(self.login_button)
 
-
     def is_login_page_loaded(self) -> bool:
         """Проверка загрузки страницы авторизации"""
         return self.find_element(self.email_field).is_displayed()
@@ -30,7 +30,6 @@ class LoginPage(BasePage):
         self.click_element(self.login_page_button)
         self.login(email, password)
         self.click_element(self.login_page_button)
-
 
     def authorise_by_login_from_base_page(self, email: str, password: str) -> None:
         """Авторизация пользователя"""

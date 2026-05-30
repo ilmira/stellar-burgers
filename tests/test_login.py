@@ -1,6 +1,7 @@
 import pytest
 import allure
 
+
 @allure.feature("Тесты для страницы авторизации")
 class TestLogin:
 

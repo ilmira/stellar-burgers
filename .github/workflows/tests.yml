@@ -12,6 +12,7 @@ jobs:
         uses: actions/checkout@v6
 
       - name: Run tests (only tests container)
+        id: tests
         run: docker compose run --rm stellar-burgers
         continue-on-error: true
 
@@ -37,8 +38,13 @@ jobs:
           path: allure-report
           retention-days: 7
 
+      - name: Fail if tests failed
+        if: always() && steps.tests.outcome == 'failure'
+        run: exit 1
+
   prepare-pages:
     needs: run-tests
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - name: Download allure report artifact
@@ -54,6 +60,7 @@ jobs:
 
   deploy-to-pages:
     needs: prepare-pages
+    if: always()
     runs-on: ubuntu-latest
     permissions:
       pages: write

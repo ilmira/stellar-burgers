@@ -17,7 +17,7 @@
 
 ## 🛠 Технологический стек
 
-*   **Python 3.9**
+*   **Python 3.11**
 *   **Pytest** (фреймворк для тестирования)
 *   **Selenium WebDriver** (управление браузером)
 *   **Docker** (контейнеризация)
@@ -77,7 +77,7 @@ allure serve allure-results
 
 ### Триггер
 
-Workflow запускается при создании Pull Request в ветку `main`.
+Workflow запускается при каждом `push` в ветку `main`.
 
 ### Что делает pipeline
 
